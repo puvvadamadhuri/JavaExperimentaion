@@ -1,6 +1,9 @@
+package MissingNum;
+import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.*;
 
-public class MissingNumOptimized {
+class Main {
     public static void main(String[] args) {
         // initializations
         int n;
@@ -8,7 +11,7 @@ public class MissingNumOptimized {
         Scanner scanner = new Scanner(System.in);
 
         // Logic
-        System.out.println("Enter the Number of digits in the Sequence:");
+        System.out.println("Enter the Number of digits in the Sequence6:");
         n = scanner.nextInt();
         for (int i = 0; i < n - 1; i++) {
             System.out.print("Enter the Number:");
@@ -19,17 +22,22 @@ public class MissingNumOptimized {
         // for (int i = 0; i < numbers.size(); i++) {
         // System.out.print(numbers.get(i));
         // }
-        int natsum = n*(n+1)/2;
-        for (int i = 0; i < n - 1; i++) {
-            natsum-= numbers.get(i);
 
+        for (int i = 1; i < n + 1; i++) {
+            //Boolean flag = true;
+            for (int j = 0; j < n - 1; j++) {
+                if (i == numbers.get(j)) {
+                    //flag = false;
+                    break;
+                }
+
+                if ( j == n - 2) {
+                    System.out.println("Number thats missing from the sequence is: " + i);
+                }
+
+            }
         }
-
-        System.out.println("Missing Number "+natsum);
-        //System.out.println(userprovidedsum);
-
         scanner.close();
 
     }
-
 }
